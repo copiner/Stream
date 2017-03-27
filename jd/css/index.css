@@ -1,0 +1,211 @@
+body{
+    /*background: #c8828e;*/
+}
+
+/*header*/
+header{
+    min-width: 320px;
+    width:100%;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+ }
+header .tleft{
+     width: 78px;
+     height: 30px;
+     position: absolute;
+     top: 0;
+     left: 0;
+ }
+header .tleft i{
+    display: inline-block;
+    width: 56px;
+    height: 26px;
+    margin-left: 14px;
+    background: url("../img/jd-sprites.png") no-repeat;
+    background-size: 200px 200px;
+    background-position: 0 -103px;
+}
+header .tcenter{
+     height: 28px;
+     margin-top: 2px;
+     margin-left: 78px;
+     margin-right: 50px;
+ }
+header .tcenter input{
+     text-indent: 30px;
+     border: none;
+     width: 100%;
+     height: 30px;
+     border-radius: 15px;
+}
+header .tcenter .search{
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url("../img/jd-sprites.png") no-repeat;
+    background-size: 200px 200px;
+    background-position: -56px -102px;
+}
+header .tright{
+     margin-top: 2px;
+     text-align: center;
+     height: 30px;
+     width: 50px;
+     position: absolute;
+     top: 0;
+     right: 0;
+ }
+header .tright span{
+    color: #FFFFFF;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+/*swiper*/
+.swiper-container {
+    height: 100%;
+}
+.swiper-slide img{
+    width: 100%;
+}
+
+nav div{
+    margin-top: 12px;
+}
+nav a{
+    text-align: center;
+    display: block;
+    float: left;
+    width: 25%;
+}
+nav img{
+    width: 33px;
+    height: 33px;
+}
+nav a span{
+    display: block;
+    font-size: 12px;
+}
+.more{
+    position: relative;
+    padding: 12px 0;
+}
+
+.more div{
+    margin-top: 28px;
+}
+.more .title{
+    /*border: 1px solid red;*/
+}
+.more .title i{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url("../img/jd-sprites.png") no-repeat;
+    background-size: 200px 200px;
+    background-position: -82px -110px;
+    vertical-align: top;
+    margin-left: 16px;
+}
+.more .title span{
+    padding-right: 5px;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 14px;
+    color: red;
+}
+.more .title time{
+    background: #000000;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+}
+.more .title small{
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+}
+
+.more .spike a{
+    text-align: center;
+    display: block;
+    float: left;
+    width: 33.33%;
+}
+.more .spike img{
+    width: 108px;
+    height: 108px;
+}
+.more .spike span{
+    display: block;
+    font-size: 12px;
+}
+.other div{
+    margin-top: 10px;
+}
+.other a{
+    display: block;
+    float: left;
+    text-align: center;
+}
+.other .some a{
+    width:33.33%;
+}
+.other .some img{
+    width: 108px;
+    height: 108px;
+}
+
+.other .much a{
+    width:50%;
+}
+.other .much img{
+    width: 208px;
+    height: 108px;
+}
+
+.other .less a{
+    width:100%;
+}
+.other .less img{
+    width: 100%;
+    height: 108px;
+}
+
+
+.line {
+    position: relative;
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.line .price{
+    padding-top: 12px;
+    color: red;
+    font-size: 14px;
+}
+
+.line a img{
+    width: 100%;
+    height: 230px;
+}
+.line a span{
+    display: block;
+    font-size: 12px;
+}
+.line small{
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    font-size: 14px;
+    opacity: .8;
+}

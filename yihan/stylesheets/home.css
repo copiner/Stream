@@ -1,0 +1,40 @@
+.top{ width: 86%; height: 6em; line-height: 6em; margin: 0 auto; border-radius: 0 0 3em 3em; background-color: #006600;}
+.top span{font-size: 2.5em; font-weight: 100; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #000000; letter-spacing: 4px;}
+/*nav_start*/
+.nav{ width: 75%; height: auto; margin: 0px auto;  background:#3CEF4D; }
+.nav .nav_l{ width: 240px; height: 4em; line-height: 4em; float:left;}
+.nav .nav_l span{ font-size: 1.8em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-style: italic;}
+.nav .nav_r{ width: auto;float: right;}
+.nav .nav_r ul{ float:right; margin-right: 60px; }
+.nav .nav_r ul li{line-height:50px; list-style:none;float:left; width:80px;}
+.nav .nav_r ul li a{ display:block;  font-size:15px; text-decoration:none;color:#333;}
+.nav .nav_r ul li a:hover{ background:#066; color:#F00}
+
+
+/*nav_end*/
+
+/*banner start*/
+
+.example{ width: 600px; margin:0px auto 0px auto;}
+.example ol{position:relative;width: 100px;height: 20px;top:-30px;left:60px;}
+.example ol li{float:left;width: 10px;height: 10px;margin: 5px;background: #fff;list-style: none;}
+.example ol li.seleted{background: #1AA4CA;}
+
+/*左滑*/
+.luara-left{position:relative;padding:0;overflow: hidden;}
+.luara-left ul{position: relative;padding: inherit;margin: 0;}
+.luara-left ul li{float: left;padding: inherit;margin: inherit;list-style: none;}
+.luara-left ul li img{width: inherit;height: inherit;}
+
+
+/*banner end*/
+.container{ width: 1000px; height:280px;  margin:0px auto;}
+.tel{float:left; width:240px; height:270px; background-color:#0C6; padding-top:10px;}
+.tel h3{ padding:10px 0;}
+.tel p{ margin:10px 0; text-align:left; padding-left:50px;line-height:20px;}
+.about{ width:760px; height:280px; background-color:#060; float:right;}
+.about h3{ text-align:left; padding:20px 0 0 20px; }
+.about p { font-size:14px; text-indent:2em; text-align:left; padding:10px; }
+
+.footer{ width:1000px; height:80px; clear:both; background-color:#66FF88;  margin:0px auto 0px auto;}
+.footer pre{ padding-top:20px;}

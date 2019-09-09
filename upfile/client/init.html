@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>file style</title>
+<style>
+.file-input{
+  line-height:30px;
+  position:relative;
+  margin-top:10px;
+}
+.file-input .input-container{
+  width:100px;
+  height:30px;
+  text-align:center;
+  background:#3879d9;
+  color:#fff;
+  border-radius:3px;
+}
+.file-input input{
+  position:absolute;
+  left:0;
+  top:0;
+  opacity:0;
+}
+.file-input #name{
+  position:absolute;
+  left:100px;
+  top:0;
+  font-size:12px;
+  color:#666;
+}
+</style>
+
+</head>
+<body>
+<input type="file" id="default" accept="image/*"  multiple />
+
+<div class="file-input">
+  <p class="input-container">
+    上传图片
+    <input type="file" id="upload" accept="image/*" multiple />
+  </p>
+  <span id="name"></span>
+</div>
+<script>
+var def = document.getElementById('default');
+var upload = document.getElementById('upload');
+var nameContainer = document.getElementById('name');
+
+upload.onchange = function(){
+  console.log(upload);
+  console.log(upload.files);
+  var name=[];
+  for(var i=0;i<this.files.length;i++){
+    name[i]= this.files[i].name;
+    if(this.files[i].size>=307200){
+      console.log("file"+this.files[i].name+"more than 300kb")
+      }
+  }
+  nameContainer.innerHTML = name;
+}
+</script>
+</body>
+</html>

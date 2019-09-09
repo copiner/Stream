@@ -1,0 +1,15 @@
+{
+  "name": "upfile",
+  "version": "1.0.0",
+  "description": "file upload",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "copiner",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^3.3.3"
+  }
+}

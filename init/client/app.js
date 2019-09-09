@@ -29,7 +29,7 @@ const server = http.createServer(function(req,res){
     let ext = path.extname(pathName);
     ext = ext ? ext.slice(1) : "txt";
     let contentType = mime[ext];
-    let filePath = path.resolve(__dirname +'/src'+ pathName);
+    let filePath = path.resolve(__dirname +'/'+ pathName);
 
     fs.readFile(filePath,function(err,data){
 	    if(err){

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>file</title>
+</head>
+<body>
+<input type="text" id="nana" name="name" value="">
+<input type="file" id="nfile" name="file" />
+<input type="button" id="up" value="上传"/>
+<script>
+var nana = document.getElementById('nana');
+var nfile = document.getElementById('nfile');
+var up = document.getElementById('up');
+
+up.onclick = function(){
+  console.log(nana.value);
+  console.log(nfile.files);
+}
+up.onchange = function(){
+  console.log(nfile.files[0]);
+}
+/*
+fetch('http://localhost:3000/',{
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  })
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(e => console.log(e))
+
+*/
+// <input type="file" id="nfile" name="file" onchange="handleFiles(this.files)" />
+// function handleFiles(data){
+//   console.log(data);
+// }
+</script>
+</body>
+</html>

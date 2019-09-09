@@ -1,8 +1,7 @@
 const http = require('http');
-const uuid = require('uuid/v4');
 const fs = require('fs')
 
-let server_post = http.createServer((req, res) => {
+let serstream = http.createServer((req, res) => {
     let arr = [];
 
     req.on('data', data => {
@@ -11,18 +10,27 @@ let server_post = http.createServer((req, res) => {
     req.on('end', () => {
         let data = Buffer.concat(arr);
         // console.log(data)
-
+        //
+        // console.log("--------------------")
+        console.log(data.toString())
         //data
         //解析二进制文件上传数据
         let post = {};
         let files = {};
+
         if (req.headers['content-type']) {
+
             let str = req.headers['content-type'].split('; ')[1];
+
+
+
             if (str) {
                 let boundary = '--' + str.split('=')[1];
 
                 //1.用"分隔符切分整个数据"
                 let arr = (data.toString()).split(boundary);
+
+
 
                 //2.丢弃头尾两个数据
                 arr.shift();
@@ -62,7 +70,7 @@ let server_post = http.createServer((req, res) => {
                         filename = filename.split('=')[1];
                         filename = filename.substring(1, filename.length - 1);
 
-                        let path = `upload/${uuid().replace(/\-/g, '')}`;
+                        let path = "./"+filename;
 
                         fs.writeFile(path, content, err => {
                             if (err) {
@@ -77,7 +85,7 @@ let server_post = http.createServer((req, res) => {
 
 
                 //5.完成
-                console.log(post);
+                //console.log(post);
             }
         }
 
@@ -85,4 +93,6 @@ let server_post = http.createServer((req, res) => {
         res.end();
     });
 });
-server_post.listen(8080);
+serstream.listen(3000,()=>{
+  console.log('server is listening in 3000');
+});

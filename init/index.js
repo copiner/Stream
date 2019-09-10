@@ -2,6 +2,20 @@ const http = require('http');
 const fs = require('fs')
 
 let serstream = http.createServer((req, res) => {
+
+      //设置允许跨域的域名，*代表允许任意域名跨域
+    res.setHeader("Access-Control-Allow-Origin","*");
+    //跨域允许的header类型
+    res.setHeader("Access-Control-Allow-Headers","Content-type,Content-Length,Authorization,Accept,X-Requested-Width");
+    //跨域允许的请求方式
+    res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    //设置响应头信息
+    res.setHeader("X-Powered-By",' 3.2.1');
+    //让options请求快速返回
+    if(req.method == "OPTIONS"){
+      return res.end();
+    }
+
     let arr = [];
 
     req.on('data', data => {
@@ -10,27 +24,20 @@ let serstream = http.createServer((req, res) => {
     req.on('end', () => {
         let data = Buffer.concat(arr);
         // console.log(data)
-        //
-        // console.log("--------------------")
         console.log(data.toString())
         //data
         //解析二进制文件上传数据
         let post = {};
         let files = {};
-
+        console.log(req.headers['content-type']);
         if (req.headers['content-type']) {
 
             let str = req.headers['content-type'].split('; ')[1];
-
-
-
             if (str) {
                 let boundary = '--' + str.split('=')[1];
 
                 //1.用"分隔符切分整个数据"
                 let arr = (data.toString()).split(boundary);
-
-
 
                 //2.丢弃头尾两个数据
                 arr.shift();
@@ -77,7 +84,7 @@ let serstream = http.createServer((req, res) => {
                                 console.log('文件写入失败', err);
                             } else {
                                 files[name] = {filename, path, type};
-                                console.log(files);
+                                //console.log(files);
                             }
                         });
                     }
@@ -93,6 +100,6 @@ let serstream = http.createServer((req, res) => {
         res.end();
     });
 });
-serstream.listen(3000,()=>{
-  console.log('server is listening in 3000');
+serstream.listen(8000,()=>{
+  console.log('server is listening in 8000');
 });

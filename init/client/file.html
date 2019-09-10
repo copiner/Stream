@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>file</title>
+</head>
+<body>
+<form id="upform" enctype="multipart/form-data">
+  <input type="text" id="nana" name="name" value="">
+  <input type="file" id="nfile" name="file" />
+  <input type="button" id="up" value="上传"/>
+</form>
+
+<script>
+var nana = document.getElementById('nana');
+var nfile = document.getElementById('nfile');
+var up = document.getElementById('up');
+var upf = document.getElementById('upform');
+
+up.onclick = function(){
+  console.log(nana.value);
+  console.log(nfile.files);
+
+  var formData = new FormData();
+  formData.append("name",nana.value);
+  formData.append("avator",nfile.files[0]);
+  fetDate(formData);
+}
+up.onchange = function(){
+  console.log(nfile.files[0]);
+}
+
+function fetDate(data){
+  fetch('http://localhost:8000/',{
+      method: 'POST',
+      body: data,
+      processData:false,
+      contentType:false,
+      headers: new Headers({
+        // 'Content-Type': 'application/json'
+      })
+  }).then(function(data) {
+    console.log(data);
+  }).catch(e => console.log(e))
+}
+
+
+
+function readAsDataURL(){
+         var  file = document.getElementById('file').files[0];
+         var reader  = new FileReader();  //创建filereader对象
+         reader.readAsDataURL(file);       //读取图片文件
+         reader.onload = function(ofile){
+              var resultimg = document.getElementById('result');
+              resultimg.innerHTML = '<img src="'+ofile.target.result+'"+alt="">';
+         }
+}
+
+function readAsText(){
+           var file = document.getElementById('file').files[0];
+           var reader = new FileReader();
+           reader.readAsText(file);   //读取文本内容
+           reader.onload = function(e){
+                var resulttxt = document.getElementById('result');
+                resulttxt.innerHTML = e.target.result;
+           }
+}
+
+// <input type="file" id="nfile" name="file" onchange="handleFiles(this.files)" />
+// function handleFiles(data){
+//   console.log(data);
+// }
+</script>
+</body>
+</html>

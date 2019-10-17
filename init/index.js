@@ -24,18 +24,18 @@ let serstream = http.createServer((req, res) => {
     req.on('end', () => {
         let data = Buffer.concat(arr);
         // console.log(data)
-        console.log(data.toString())
-        //data
+        //console.log(data.toString())
+
         //解析二进制文件上传数据
         let post = {};
-        let files = {};
-        console.log(req.headers['content-type']);
+        //console.log(req.headers['content-type']);
         if (req.headers['content-type']) {
 
             let str = req.headers['content-type'].split('; ')[1];
+            //console.log(str);
             if (str) {
                 let boundary = '--' + str.split('=')[1];
-
+                //console.log("boundary："+boundary)
                 //1.用"分隔符切分整个数据"
                 let arr = (data.toString()).split(boundary);
 
@@ -48,16 +48,19 @@ let serstream = http.createServer((req, res) => {
 
                 //4.每个数据在第一个"\r\n\r\n"处切成两半
                 arr.forEach(buffer => {
+                    //console.log(buffer);
                     let n = buffer.indexOf('\r\n\r\n');
 
                     let disposition = buffer.slice(0, n);
                     let content = buffer.slice(n + 4);
 
+
                     disposition = disposition.toString();
+                    console.log("content------"+content.toString());
+                    console.log("disposition------"+disposition);
 
                     if (disposition.indexOf('\r\n') === -1) {
                         //普通数据
-                        //Content-Disposition: form-data; name="user"
                         content = content.toString();
 
                         let name = disposition.split('; ')[1].split('=')[1];
@@ -83,21 +86,21 @@ let serstream = http.createServer((req, res) => {
                             if (err) {
                                 console.log('文件写入失败', err);
                             } else {
-                                files[name] = {filename, path, type};
-                                //console.log(files);
+                                post[name] = {filename, path, type};
+                                //console.log(post)
                             }
                         });
                     }
                 });
 
 
-                //5.完成
-                //console.log(post);
+
             }
         }
-
-
-        res.end();
+        //5.完成
+        console.log(post);
+        //res.write("ok");
+        res.end("ok");
     });
 });
 serstream.listen(8000,()=>{

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>binary</title>
+</head>
+<body>
+
+<!-- Blob文件下载下载 -->
+<a id="h">点此进行下载</a>
+
+<script>
+  var blob = new Blob(["Hello World"]);
+  var url = window.URL.createObjectURL(blob);
+  var a = document.getElementById("h");
+  a.download = "helloworld.txt";
+  a.href = url;
+</script>
+
+</body>
+</html>

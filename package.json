@@ -1,0 +1,21 @@
+{
+  "name": "hellokoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "abc": "node abc/app",
+    "middle": "node middleware/app",
+    "demo": "node demo/app",
+    "test": "node test/app"
+  },
+  "keywords": [
+    "koa",
+    "middleware"
+  ],
+  "author": "copiner",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.0"
+  }
+}
